@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Calculator</title>
+</head>
+<body>
+    <h1>Javascript Calculator</h1>
+    <form action="/action_page.php">
+        <input type="text" id="first" name="fname" placeholder="First value">
+        <input type="text" id="second" name="lname" placeholder="Second value"><br><br>
+
+        <!-- solve function call function solve to evaluate value -->
+        <input type="button" value="+" onclick="solve('+')"/> 
+        <input type="button" value="-" onclick="solve('-')"/> 
+        <input type="button" value="*" onclick="solve('*')"/> 
+        <input type="button" value="/" onclick="solve('/')"/> 
+        <input type="button" value="^" onclick="solve('**')"/><br><br>
+
+        <input type="text" id="result"/>
+        <!-- clr() function will call clr to clear all value -->
+        <input type="button" value="c" onclick="clr()"/> 
+    
+    </form> 
+
+    
+    <script>
+		//function that evaluates the digit and return result
+		function solve(operator){
+			let x = Number(document.getElementById("first").value)
+            console.log(x)
+			let y = Number(document.getElementById("second").value)
+			//document.getElementById("result").value = y
+            console.log(y)
+            var result_value;
+            if (operator == '+'){
+                result_value = x + y;
+            }
+            if (operator == '-'){
+                result_value = x - y;
+            }   
+            if (operator == '*'){
+                result_value = x * y;
+            }
+            if (operator == '/'){
+                result_value = x / y;
+            }
+            if (operator == '**'){
+                result_value = x ** y;
+            }
+            document.getElementById("result").value = result_value;
+		}
+		
+		//function that clear the display
+		function clr(){
+			document.getElementById("result").value = ""
+            document.getElementById("second").value = ""
+            document.getElementById("first").value = ""
+		}
+	</script>
+</body>
+</html>
